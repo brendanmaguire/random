@@ -1,6 +1,8 @@
 # Random
 This service provides a RESTful API which provides random functionality. It is written in Python using Flask.
 
+The [Swagger Spec](static/swagger.yaml) defines the interface of the service.
+
 ## Running Locally
 The service can be run as a Docker container or as a Python process.
 
