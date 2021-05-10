@@ -6,15 +6,10 @@ info:
 schemes:
 - "http"
 paths:
-  /random/{seed}/choice:
+  /random/choice:
     get:
       summary: "Get a random value from a list of values"
       parameters:
-      - in: "path"
-        name: "seed"
-        description: "The seed to use for the random generator"
-        required: true
-        type: "string"
       - in: "query"
         name: "value"
         description: "The list of values to choose from"
