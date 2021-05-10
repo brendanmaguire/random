@@ -7,6 +7,7 @@ COPY requirements.txt requirements.txt
 RUN pip3 install -r requirements.txt
 
 COPY app.py app.py
+COPY static/swagger.yaml static/swagger.yaml
 
 EXPOSE 5000
 

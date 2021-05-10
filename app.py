@@ -17,5 +17,10 @@ def _choice(random_seed):
     return {'value': Random(random_seed).choice(values)}
 
 
+@app.route("/swagger.yaml")
+def _swagger():
+    return app.send_static_file('swagger.yaml')
+
+
 if __name__ == "__main__":
     app.run()

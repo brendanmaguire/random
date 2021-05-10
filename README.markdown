@@ -17,7 +17,7 @@ pip3 install -r requirements.txt
 
 Run:
 ```
-python3 -m flask run app.py
+python3 -m flask run
 ```
 
 ## Query
@@ -28,7 +28,13 @@ curl 'http://localhost:5000/random/333/choice?value=3&value=5&value=7'
 ```
 
 ## Publishing the Docker Image
+Build the image:
 ```
-docker build -t maguirebrendan/random:0.0.1 .
-docker push maguirebrendan/random:0.0.1
+docker build -t maguirebrendan/random:<tag> .
+```
+
+Push the image to the Docker repository:
+```
+docker login
+docker push maguirebrendan/random:<tag>
 ```
