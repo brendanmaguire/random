@@ -1,12 +1,15 @@
-import random
+from random import Random
 from flask import (Flask, request)
 
 app = Flask(__name__)
 
 
-@app.route("/random/choice")
-def _choice():
+@app.route("/random/<random_seed>/choice")
+def _choice(random_seed):
     values = request.args.getlist('value')
+
+    if random_seed == 'default':
+        random_seed = None
 
     if not values:
         return {
@@ -14,7 +17,7 @@ def _choice():
             'detail': "'value' parameters must be specified"
         }, 400
 
-    return {'value': random.choice(values)}
+    return {'value': Random(random_seed).choice(values)}
 
 
 @app.route("/swagger.yaml")

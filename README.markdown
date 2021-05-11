@@ -24,7 +24,7 @@ python3 -m flask run
 
 ## Query
 ```
-curl 'http://localhost:5000/random/choice?value=3&value=5&value=7'
+curl 'http://localhost:5000/random/default/choice?value=3&value=5&value=7'
 
 {"value":"7"}
 ```
