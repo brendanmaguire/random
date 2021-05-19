@@ -8,7 +8,7 @@ The service can be run as a Docker container or as a Python process.
 
 ### Docker Container
 ```
-docker run -p 5000:5000 maguirebrendan/random:0.0.1
+docker run --pull always --publish 5000:5000 maguirebrendan/random:latest
 ```
 
 ### Python Process
@@ -30,13 +30,5 @@ curl 'http://localhost:5000/random/default/choice?value=3&value=5&value=7'
 ```
 
 ## Publishing the Docker Image
-Build the image:
-```
-docker build -t maguirebrendan/random:<tag> .
-```
-
-Push the image to the Docker repository:
-```
-docker login
-docker push maguirebrendan/random:<tag>
-```
+1. Bump the version in the [VERSION file](VERSION)
+1. `./docker-build-and-publish`
