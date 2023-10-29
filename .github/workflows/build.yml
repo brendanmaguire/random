@@ -29,9 +29,8 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-          image: maguirebrendan/random
           push: true
           platforms: linux/amd64,linux/arm64
           tags:
-            ${{ steps.versioning.outputs.version }},latest
+            maguirebrendan/random:${{ steps.versioning.outputs.version }},maguirebrendan/random:latest
 
