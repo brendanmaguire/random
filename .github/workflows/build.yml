@@ -1,10 +1,8 @@
 name: build
 
 on:
-  push:
-    branches:
-      - main
-
+  release:
+    types: [released]
 
 jobs:
   buildx:
@@ -23,8 +21,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Version tag
         id: versioning
-        run: |
-          echo "version=$(cat VERSION)" >> $GITHUB_OUTPUT
+        run: echo "tag=${GITHUB_REF#refs/*/}" >> $GITHUB_OUTPUT
       - name: Build & push
         uses: docker/build-push-action@v5
         with:
@@ -32,5 +29,5 @@ jobs:
           push: true
           platforms: linux/amd64,linux/arm64
           tags:
-            maguirebrendan/random:${{ steps.versioning.outputs.version }},maguirebrendan/random:latest
+            maguirebrendan/random:${{ steps.versioning.outputs.tag }},maguirebrendan/random:latest
 
