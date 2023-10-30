@@ -13,14 +13,14 @@ docker run --pull always --publish 5000:5000 maguirebrendan/random:latest
 ```
 
 ### Python Process
-Install libraries:
+Install requirements:
 ```
-pip3 install -r requirements.txt
+poetry install
 ```
 
 Run:
 ```
-python3 -m flask run
+poetry run python -m flask run
 ```
 
 ## Query
